@@ -1,20 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './loan_form.css';
 
 function LoanApplicationForm() {
-    const [employmentType, setEmploymentType] = useState('');
-    const [formalInfoVisible, setFormalInfoVisible] = useState(false);
-
-    const handleEmploymentTypeChange = (event) => {
-        const selectedType = event.target.value;
-        setEmploymentType(selectedType);
-        if (selectedType === 'formal') {
-            setFormalInfoVisible(true);
-        } else {
-            setFormalInfoVisible(false);
-        }
-    };
-
     return (
         <div>
             <h2>Loan Application Form</h2>
@@ -23,31 +10,6 @@ function LoanApplicationForm() {
                 <input type="text" id="Name" name="Name" placeholder="Enter the name" required /><br /><br />
                 <label htmlFor="dob">Date of Birth:</label>
                 <input type="date" id="dob" name="dob" required /><br /><br />
-                <label htmlFor="email">Email :</label>
-                <input type="email" id="email" name="email" required /><br /><br />
-                <label htmlFor="password">Password:</label>
-                <input type="password" id="password" name="password" required /><br /><br />
-                <label htmlFor="mobile">Mobile Number:</label>
-                <input type="tel" id="mobile" name="mobile" required /><br /><br />
-                <h3>Profile Setup after Sign up</h3>
-                <label htmlFor="id_proof">ID Proof:</label>
-                <input type="file" id="id_proof" name="id_proof" accept=".jpg, .jpeg, .png, .pdf" required /><br /><br />
-                <label htmlFor="pan_card">PAN Card:</label>
-                <input type="file" id="pan_card" name="pan_card" accept=".jpg, .jpeg, .png, .pdf" required /><br /><br />
-                <label htmlFor="employment_type">Employment Type:</label>
-                <select id="employment_type" name="employment_type" value={employmentType} onChange={handleEmploymentTypeChange} required>
-                    <option value="">Select</option>
-                    <option value="formal">Formal</option>
-                    <option value="not_formal">Not Formal</option>
-                </select><br /><br />
-                {formalInfoVisible && (
-                    <div>
-                        <label htmlFor="payslips">Payslips (Upload):</label>
-                        <input type="file" id="payslips" name="payslips" accept=".pdf" required /><br /><br />
-                        <label htmlFor="income_tax">Income Tax Breakdown Sheet (Upload):</label>
-                        <input type="file" id="income_tax" name="income_tax" accept=".pdf" required /><br /><br />
-                    </div>
-                )}
                 <label htmlFor="gender">Gender:</label>
                 <select id="gender" name="gender" required>
                     <option value="">Select</option>
