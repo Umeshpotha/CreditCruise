@@ -11,6 +11,7 @@
     <title>Credit Cruise</title>
   </head>
   <body>
+    <div class="super-container">
     <div class="nav-div">
       <div class="logo"><b>Credit Cruise</b></div>
       <ul class="nav-list">
@@ -28,6 +29,7 @@
         <li>3. Tenure – Choose repayment periods from 1 to 48 months.</li>
       </ul>
     </div>
+  </div>
     <div class="apply-loan-container">
       <p class="apply-loan-title">Steps to avail an instant loan:</p>
       <ul class="apply-loan-list">
@@ -38,6 +40,15 @@
         <li>5. Provide your bank details for credit and to avail of other facilities</li>
       </ul>
       </div>
+      <script>
+        document.getElementById('login-form').addEventListener('submit', function(event) {
+          event.preventDefault();
+          const username = document.getElementById('username').value;
+          const password = document.getElementById('password').value;
+          console.log(`Username: ${username}`);
+          console.log(`Password: ${password}`);
+        });
+      </script>
     <footer class="footer">
       <div class="footer-content">
         <p>&copy; Credit Cruise 2024. All Rights Reserved.</p>
