@@ -1,7 +1,6 @@
 // Import necessary libraries and components
 import React from 'react';
 import './home.css';
-import { Link } from 'react-router-dom';
 
 // Define the HomePage component
 const HomePage = () => {
