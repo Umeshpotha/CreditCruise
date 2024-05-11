@@ -1,59 +1,53 @@
+/* Navbar.css */
 nav {
-    background-color: #333;
-    padding: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  .logo {
-    font-size: 24px;
-    color: #fff;
-    text-decoration: none;
-    margin-right: 20px;
-  }
-  
-  .logo:hover {
-    color: #ccc;
-  }
-  
-  .nav-links {
-    display: flex;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .nav-links a {
-    text-decoration: none;
-    margin-right: 20px;
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.2s ease-in-out;
-  }
-  
-  .nav-links a:hover {
-    color: #ccc;
-  }
-  
-  .nav-links a:last-child {
-    margin-right: 0;
-  }
-  
+  position: relative; /* Set position to relative */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  padding: 10px 20px;
+}
+.logo a {
+  color: #fff;
+  text-decoration: none;
+}
+.logo a:hover {
+  color: blue;
+}
+.logo {
+  font-size: 24px;
+}
 
-  
-  .nav-links a.active {
-    color: #4CAF50;
-    border-bottom: 2px solid #4CAF50;
-  }
-  
-  .nav-links a.active:hover {
-    color: #3e8e41;
-  }
-  .logo a {
-    text-decoration: none;
-    color: #007bff;
-  }
+.menu-bar-container {
+  position: absolute; /* Set position to absolute */
+  right: 20px; /* Adjust as needed */
+}
+
+.menu-icon {
+  cursor: pointer;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  margin-left: 20px;
+}
+
+.nav-links a:hover {
+  text-decoration: underline;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: calc(100% + 10px);
+  background-color: #333;
+  display: none;
+  z-index: 1000; /* Ensure dropdown is on top of other content */
+  width: 150px; /* Adjust width as needed */
+  right: 0; /* Align dropdown with the right edge */
+}

@@ -1,12 +1,11 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import './App.css';
-import Navbar from './components/navbar';
-import Signup from './components/Signup';
-import Login from './components/login';
-import HomePage from './components/Home';
-import About from './components/about';
-import LoanApplicationForm from './components/loan_form';
-
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import "./App.css";
+import Navbar from "./components/navbar";
+import Signup from "./components/Signup";
+import Login from "./components/login";
+import HomePage from "./components/Home";
+import About from "./components/about";
+import LoanApplicationForm from "./components/loan_form";
 function App() {
   return (
     <Router>
