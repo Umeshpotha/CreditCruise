@@ -3,14 +3,11 @@ import React from 'react';
 import './home.css';
 import { Link } from 'react-router-dom';
 
-const ButtonComponent = () => {
-    return (
-      <Link to="/loan_form" className="btn btn-primary">Apply Now</Link>
-    );
-  };
-
 // Define the HomePage component
 const HomePage = () => {
+    const handleButtonClick = () => {
+        window.location.href = '/loan_form.html';
+      };
     return (
         <div className="homepage">
             {/* Main content */}
@@ -20,7 +17,7 @@ const HomePage = () => {
                     <div className="hero-content">
                         <h1>Empowering SMEs with Small Loans</h1>
                         <p>Access quick and hassle-free loans to fuel your business growth.</p>
-                        <Link to=""><button className="btn btn-primary">Apply Now</button></Link>
+                        <button onClick={handleButtonClick} className="btn btn-primary">Apply Now</button>
                     </div>
                 </section>
 
