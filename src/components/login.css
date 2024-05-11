@@ -7,24 +7,24 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.login-container h2 {
+.login-container h1 {
     text-align: center;
     margin-bottom: 35px;
 }
 
-.login-container form {
+.login-container .login-form {
     display: flex;
     flex-direction: column;
 }
 
-.login-container form input {
+.login-container .login-input {
     margin-bottom: 10px;
     padding: 10px;
     border-radius: 5px;
     border: 1px solid #4CAF50;
 }
 
-.login-container form button {
+.login-container .login-submit {
     padding: 10px;
     border-radius: 5px;
     border: none;
@@ -32,7 +32,36 @@
     color: white;
     cursor: pointer;
 }
-.login-input {
-    width: fit-content;
-    margin-left: 20px;
+
+.or-divider {
+    text-align: center;
+    margin: 20px 0;
+    align-items: center;
+    display: flex;
+}
+
+.or-divider span {
+    display: inline-block;
+    padding: 0 10px;
+    background-color: white;
+}
+
+.or-divider::before, .or-divider::after {
+    content: "";
+    display: inline-block;
+    width: 45%;
+    vertical-align: middle;
+    border-top: 1px solid #4CAF50;
+}
+
+.or-divider::before {
+    margin-right: 10px;
+}
+
+.or-divider::after {
+    margin-left: 10px;
+}
+
+.signup-link {
+    text-align: center;
 }

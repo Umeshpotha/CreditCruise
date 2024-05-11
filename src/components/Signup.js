@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import './Signup.css';
+import { useNavigate} from "react-router-dom";
 
 function Signup() {
+    const navigate = useNavigate();
     const [fullname, setFullname] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -26,6 +28,7 @@ function Signup() {
         
         if (response.ok) {
             alert(`Registered user: ${data.message}`);
+            navigate("/login", { state: { id: email } });
         } else {
             alert(`Error: ${data.error}`);
         }

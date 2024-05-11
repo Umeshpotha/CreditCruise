@@ -6,8 +6,10 @@ nav {
 }
 
 .logo {
+    text-decoration: none;
     font-size: 1.5em;
     font-weight: bold;
+    
 }
 
 .nav-links {

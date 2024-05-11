@@ -1,6 +1,6 @@
-import "./login.css";
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
+import "./login.css";
 
 function Login() {
   const navigate = useNavigate();
@@ -23,7 +23,7 @@ function Login() {
 
       if (response.ok) {
         alert("Logged in successfully");
-        navigate("/home", { state: { id: email } });
+        navigate("/", { state: { id: email } });
       } else {
         alert(data.error);
       }
@@ -36,10 +36,11 @@ function Login() {
   }
 
   return (
-    <div className="login">
+    <div className="login-container">
       <h1>Login</h1>
-      <form onSubmit={submit} action="POST">
+      <form className="login-form" onSubmit={submit} action="POST">
         <input
+          className="login-input"
           type="email"
           onChange={(e) => {
             setEmail(e.target.value);
@@ -47,18 +48,21 @@ function Login() {
           placeholder="Email"
         />
         <input
+          className="login-input"
           type="password"
           onChange={(e) => {
             setPassword(e.target.value);
           }}
           placeholder="Password"
         />
-        <input type="submit" onClick={submit} />
+        <input className="login-submit" type="submit" value="Login" />
       </form>
-      <br />
-      <p>OR</p>
-      <br />
-      <Link to="/register">Signup Here</Link>
+      <div className="or-divider">
+        <span>OR</span>
+      </div>
+      <div className="signup-link">
+        <Link to="/register">Signup Here</Link>
+      </div>
     </div>
   );
 }
