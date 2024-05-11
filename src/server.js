@@ -39,26 +39,11 @@ app.post('/register', async (req, res) => {
 
 app.post('/login', async (req, res) => {
   const { email, password } = req.body;
-
-  const user = await
-  User.findOne
-  ({ email, password });
-  if (!user) {
+  const user = await User.findOne({ email, password });
+  if (!user || !password) {
     return res.status(400).json({ error: "Invalid credentials" });
   }
   res.status(200).json({ message: "User logged in successfully" });
-});
-app.get('/users', async (req, res) => {
-  const users = await User.find();
-  res.status(200).json(users);
-});
-app.get('/users/:id', async (req, res) => {
-  const user =
-  await User.findById(req.params.id);
-  if (!user) {
-    return res.status(404).json({ error: "User not found" });
-  }
-  res.status(200).json(user);
 });
 
 

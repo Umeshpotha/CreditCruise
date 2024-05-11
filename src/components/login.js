@@ -1,50 +1,66 @@
-import React, { useState } from 'react';
-import './login.css'
+import "./login.css";
+import React, { useState } from "react";
+import { useNavigate, Link } from "react-router-dom";
 
-const Login = () => {
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
+function Login() {
+  const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-    const handleUsernameChange = (e) => {
-        setUsername(e.target.value);
-    };
+  async function submit(e) {
+    e.preventDefault();
 
-    const handlePasswordChange = (e) => {
-        setPassword(e.target.value);
-    };
+    try {
+      const response = await fetch("http://localhost:4000/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, password }),
+      });
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-    };
+      const data = await response.json();
 
-    return (
-        <div className="login-container">
-            <h2>Login</h2>
-            <form onSubmit={handleSubmit}>
-                <div>
-                    <label htmlFor="username">Username:</label>
-                    <input
-                        type="text"
-                        id="username"
-                        value={username}
-                        onChange={handleUsernameChange}
-                        className="login-input"
-                    />
-                </div>
-                <div>
-                    <label htmlFor="password">Password:</label>
-                    <input
-                        type="password"
-                        id="password"
-                        value={password}
-                        onChange={handlePasswordChange}
-                        className="login-input"
-                    />
-                </div>
-                <button type="submit" className="login-button">Login</button>
-            </form>
-        </div>
-    );
-};
+      if (response.ok) {
+        alert("Logged in successfully");
+        navigate("/home", { state: { id: email } });
+      } else {
+        alert(data.error);
+      }
+
+      // handle the response data here
+    } catch (error) {
+      console.log(error);
+      alert("An error occurred while trying to log in");
+    }
+  }
+
+  return (
+    <div className="login">
+      <h1>Login</h1>
+      <form onSubmit={submit} action="POST">
+        <input
+          type="email"
+          onChange={(e) => {
+            setEmail(e.target.value);
+          }}
+          placeholder="Email"
+        />
+        <input
+          type="password"
+          onChange={(e) => {
+            setPassword(e.target.value);
+          }}
+          placeholder="Password"
+        />
+        <input type="submit" onClick={submit} />
+      </form>
+      <br />
+      <p>OR</p>
+      <br />
+      <Link to="/register">Signup Here</Link>
+    </div>
+  );
+}
 
 export default Login;
