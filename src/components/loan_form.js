@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './loan_form.css';
 
 function LoanApplicationForm() {
     const [employmentType, setEmploymentType] = useState('');
