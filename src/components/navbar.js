@@ -3,7 +3,6 @@ import React from "react";
 import "./Navbar.css";
 import { Link } from "react-router-dom";
 import MenuBar from "./menu"; // Import the MenuBar component
-import Settings from "./settings"; // Import the Settings
 function Navbar() {
   return (
     <nav>

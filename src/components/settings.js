@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "settings.css";
+
 const Settings = () => {
   const [notificationsEnabled, setNotificationsEnabled] = useState(true);
   const [darkModeEnabled, setDarkModeEnabled] = useState(false);
