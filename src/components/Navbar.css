@@ -1,0 +1,25 @@
+nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #4CAF50; /* Change this to your preferred color */
+}
+
+.logo {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.nav-links {
+    display: flex;
+    gap: 15px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: black;
+}
+.logo {
+    text-decoration: none;
+    color: inherit; 
+}

@@ -1,79 +1,67 @@
-const { MongoClient } = require('mongodb');
 const express = require('express');
-const router = express.Router();
-const User = require('../models/user'); 
+const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
+const cors = require("cors")
+const app = express();
+app.use(bodyParser.json());
+app.use(cors())
 
-const uri = "mongodb://localhost:27017";
-const dbName = "logins-loans";
+const port = 4000;
 
-const userCollectionName = "users";
-const agentCollectionName = "agents";
+// Connect to MongoDB
+mongoose.connect('mongodb://localhost:27017/login-loans', { })
+  .then(() => console.log('MongoDB Connected...'))
+  .catch(err => console.log(err));
 
-const username = "john";
-const agentName = "obama";
-
-async function storeUsernameAndAgent() {
-  try {
-    const client = await MongoClient.connect(uri, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
-    const database = client.db(dbName);
-
-    const userCollection = database.collection(userCollectionName);
-    const agentCollection = database.collection(agentCollectionName);
-
-    const existingUser = await userCollection.findOne({ username });
-    const existingAgent = await agentCollection.findOne({ agentName });
-
-    if (existingUser) {
-      throw new Error("Username already exists!");
-    } else if (existingAgent) {
-      throw new Error("Agent name already exists!");
-    }
-
-    const userDoc = { username };
-    const agentDoc = { agentName };
-
-    const userInsertResult = await userCollection.insertOne(userDoc);
-    const agentInsertResult = await agentCollection.insertOne(agentDoc);
-
-    console.log("Username inserted successfully:", userInsertResult.insertedId);
-    console.log("Agent name inserted successfully:", agentInsertResult.insertedId);
-
-    await client.close();
-  } catch (error) {
-    console.error("Error storing username or agent name:", error.message);
-  }
-}
-router.post('/login', async (req, res) => {
-  const { username, password } = req.body;
-
-  // Check if both username and password are provided
-  if (!username ||!password) {
-    return res.status(400).send('Both username and password are required.');
-  }
-
-  // Find the user in the database
-  const user = await User.findOne({ username }).exec();
-
-  // If the user doesn't exist, return an error
-  if (!user) {
-    return res.status(401).send('Invalid username or password.');
-  }
-
-  // Compare the provided password with the stored hash
-  const isPasswordValid = await user.comparePassword(password);
-
-  // If the password is incorrect, return an error
-  if (!isPasswordValid) {
-    return res.status(401).send('Invalid username or password.');
-  }
-
-  // If the credentials are correct, return a success message or a token for authentication
-  res.send('Login successful!');
+const UserSchema = new mongoose.Schema({
+  fullname: String,
+  email: String,
+  password: String
 });
 
-module.exports = router;
+const User = mongoose.model('User', UserSchema, 'users');
 
-storeUsernameAndAgent();
+app.post('/register', async (req, res) => {
+  const { fullname, email, password, confirmPassword } = req.body;
+
+  if(password !== confirmPassword) {
+    return res.status(400).json({ error: "Passwords do not match" });
+  }
+
+  const user = new User({ fullname, email, password });
+  try {
+    await user.save();
+    res.status(201).json({ message: "User registered successfully" });
+  } catch (error) {
+    res.status(500).json({ error: "Error registering user" });
+  }
+});
+
+app.post('/login', async (req, res) => {
+  const { email, password } = req.body;
+
+  const user = await
+  User.findOne
+  ({ email, password });
+  if (!user) {
+    return res.status(400).json({ error: "Invalid credentials" });
+  }
+  res.status(200).json({ message: "User logged in successfully" });
+});
+app.get('/users', async (req, res) => {
+  const users = await User.find();
+  res.status(200).json(users);
+});
+app.get('/users/:id', async (req, res) => {
+  const user =
+  await User.findById(req.params.id);
+  if (!user) {
+    return res.status(404).json({ error: "User not found" });
+  }
+  res.status(200).json(user);
+});
+
+
+app.listen(port, () => {
+  console.log(`Server running on http://localhost:${port}`);
+});
