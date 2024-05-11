@@ -1,6 +1,13 @@
 // Import necessary libraries and components
 import React from 'react';
 import './home.css';
+import { Link } from 'react-router-dom';
+
+const ButtonComponent = () => {
+    return (
+      <Link to="/loan_form" className="btn btn-primary">Apply Now</Link>
+    );
+  };
 
 // Define the HomePage component
 const HomePage = () => {
@@ -13,7 +20,7 @@ const HomePage = () => {
                     <div className="hero-content">
                         <h1>Empowering SMEs with Small Loans</h1>
                         <p>Access quick and hassle-free loans to fuel your business growth.</p>
-                        <button className="btn btn-primary">Apply Now</button>
+                        <Link to=""><button className="btn btn-primary">Apply Now</button></Link>
                     </div>
                 </section>
 
@@ -23,6 +30,7 @@ const HomePage = () => {
                     <div className="testimonial">
                         <p>"YourLoanApp made the loan process incredibly easy. I received the funds I needed within days!"</p>
                         <cite>- John Doe, CEO of ABC Enterprises</cite>
+                        
                     </div>
                     {/* Add more testimonials here */}
                 </section>
