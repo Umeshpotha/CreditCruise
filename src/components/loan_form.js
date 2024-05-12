@@ -14,6 +14,7 @@ function LoanApplicationForm() {
     Loan_Amount_Term: "",
     Property_Area: "",
   });
+  const [loanStatus, setLoanStatus] = useState(""); 
 
   const handleChange = (e) => {
     setFormData({
@@ -26,7 +27,7 @@ function LoanApplicationForm() {
     e.preventDefault();
 
     try {
-      const response = await fetch("http://192.168.170.127:5000/predict", {
+      const response = await fetch("https://loanapprovalpredictionapi.onrender.com/predict", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -39,7 +40,9 @@ function LoanApplicationForm() {
       }
 
       const responseData = await response.json();
-      console.log(responseData);
+      const loanApproved = responseData.approved;
+      // console.log(responseData);
+      setLoanStatus(loanApproved? "Yes" : "No");
     } catch (error) {
       console.error("Error:", error.message);
     }
@@ -171,6 +174,7 @@ function LoanApplicationForm() {
         <br />
         <input type="submit" value="Submit" />
       </form>
+      <center><h1>Loan Status: {loanStatus}</h1></center>
     </div>
   );
 }
