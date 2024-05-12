@@ -5,12 +5,15 @@ function Logout() {
   const navigate = useNavigate();
 
   const logout = () => {
-    localStorage.removeItem('user'); // Remove user data from local storage
-    navigate('/login'); // Redirect to login page
+    localStorage.removeItem('user');
+    navigate('/login'); 
   }
 
   return (
-    <button onClick={logout}>Logout</button>
+    <div class="new_button">
+      <button onClick={logout}>Logout</button>
+    </div>
+    
   );
 }
 

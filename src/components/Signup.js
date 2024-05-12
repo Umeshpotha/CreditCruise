@@ -39,7 +39,7 @@ function Signup() {
 
     return (
         <div className="signup-container">
-            <h2>Sign Up</h2>
+            <h2>Register</h2>
             <form onSubmit={handleSubmit}>
                 <input type="text" placeholder="Full Name" required onChange={e => setFullname(e.target.value)} />
                 <input type="text" placeholder="username or id" required onChange={e => setUsername(e.target.value)} />

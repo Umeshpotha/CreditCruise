@@ -28,7 +28,7 @@ const HomePage = () => {
 
         <section className="cta-section">
           <h2>Ready to take your business to the next level?</h2>
-          <button className="btn btn-primary">Apply Now</button>
+          <a class="bottom_button" href="/loan_form.js">Apply Now</a>
         </section>
       </div>
 
