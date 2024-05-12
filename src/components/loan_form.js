@@ -21,12 +21,12 @@ function LoanApplicationForm() {
       [e.target.name]: e.target.value,
     });
   };
-  alert(formData);
+  // alert(formData);
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      const response = await fetch("http://127.0.0.1:5000/predict", {
+      const response = await fetch("http://192.168.170.127:5000/predict", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
