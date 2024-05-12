@@ -2,10 +2,12 @@ import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import "./login.css";
 
+
 function Login() {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  
 
   async function submit(e) {
     e.preventDefault();
@@ -18,22 +20,21 @@ function Login() {
         },
         body: JSON.stringify({ email, password }),
       });
-
       const data = await response.json();
 
       if (response.ok) {
         alert("Logged in successfully");
+        localStorage.setItem('user', JSON.stringify(data.user));
+        console.log('User data in local storage:', localStorage.getItem('user'));
         navigate("/", { state: { id: email } });
       } else {
         alert(data.error);
       }
-
-      // handle the response data here
     } catch (error) {
       console.log(error);
       alert("An error occurred while trying to log in");
     }
-  }
+  };
 
   return (
     <div className="login-container">
