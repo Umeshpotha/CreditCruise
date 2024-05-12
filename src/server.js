@@ -8,7 +8,6 @@ app.use(cors())
 
 const port = 4000;
 
-
 mongoose.connect('mongodb://localhost:27017/login-loans', { })
   .then(() => console.log('MongoDB Connected...'))
   .catch(err => console.log(err));
@@ -22,9 +21,27 @@ const UserSchema = new mongoose.Schema({
   password: String
 });
 
-const User = mongoose.model('User', UserSchema, 'users');
-const query = { email: 'user-logged-in-email' };
+const loanTakerSchema = new mongoose.Schema({
+  name: String,
+  email: String,
+  loanAmount: Number,
+  loanTerm: Number,
+  interestRate: Number
+})
 
+const User = mongoose.model('User', UserSchema, 'users');
+const loanTaker = mongoose.model('loanTaker',loanTakerSchema,'loantakers');
+
+app.post('/apply-loan', async (req, res) => {
+  const { name, email, loanAmount, loanTerm, interestRate } = req.body;
+  const loantak = new loanTaker({name, email, loanAmount, loanTerm, interestRate});
+  try {
+    await loantak.save();
+    res.status(201).json({ message: "Loan Applicant request sent"});
+  } catch (error) {
+    res.status(500).json({ error: "Error sending loan request" });
+  }
+});
 
 app.post('/register', async (req, res) => {
   const { fullname, username, mobile, pan, email, password, confirmPassword } = req.body;

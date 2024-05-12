@@ -11,8 +11,10 @@
   }
   
   .hero-section {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://t4.ftcdn.net/jpg/01/31/15/51/240_F_131155172_4ZVdaT7YF5yJHqircjy59DDxV6aWFds9.jpg');
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/public/background.png') ;
     background-size: cover;
+    background-repeat: no-repeat;
+    background-origin: content-box;
     height: 100vh;
     display: flex;
     align-items: center;

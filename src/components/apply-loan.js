@@ -1,76 +1,52 @@
 import React, { useState } from 'react';
 import './apply-loan.css'
+import { useNavigate} from "react-router-dom";
 
 function ApplyLoan() {
-  const [formState, setFormState] = useState({
-    name: '',
-    email: '',
-    loanAmount: '',
-    loanTerm: '',
-    interestRate: '',
+  const navigate = useNavigate();
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [loanAmount, setloanAmount] = useState('');
+  const [loanTerm, setloanTerm] = useState('');
+  const [interestRate, setinterestRate] = useState('');
+
+const handleSubmit = async(event)=>{
+  event.preventDefault();
+  const response = await fetch('http://localhost:4000/apply-loan',{
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ name, email, loanAmount, loanTerm, interestRate }),
   });
-
-  const handleInputChange = (event) => {
-    setFormState({
-     ...formState,
-      [event.target.name]: event.target.value,
-    });
-  };
-
-  const handleFormSubmit = (event) => {
-    event.preventDefault();
-    
-  };
-
-  return (
-    <div className="App">
-        <br></br>
-        <center><h1>Apply For Loan</h1></center>
-      <form onSubmit={handleFormSubmit}>
-        <label htmlFor="name">Name:</label>
-        <input
-          type="text"
-          name="name"
-          value={formState.name}
-          onChange={handleInputChange}
-        />
-
-        <label htmlFor="email">Email:</label>
-        <input
-          type="email"
-          name="email"
-          value={formState.email}
-          onChange={handleInputChange}
-        />
-
-        <label htmlFor="loanAmount">Loan Amount:</label>
-        <input
-          type="number"
-          name="loanAmount"
-          value={formState.loanAmount}
-          onChange={handleInputChange}
-        />
-
-        <label htmlFor="loanTerm">Loan Term (in months):</label>
-        <input
-          type="number"
-          name="loanTerm"
-          value={formState.loanTerm}
-          onChange={handleInputChange}
-        />
-
-        <label htmlFor="interestRate">Interest Rate:</label>
-        <input
-          type="number"
-          name="interestRate"
-          value={formState.interestRate}
-          onChange={handleInputChange}
-        />
-
-        <center><button type="submit">Submit</button></center>
-      </form>
-    </div>
-  );
+  if (!response.ok) {
+    throw new Error(`HTTP error! status: ${response.status}`);
+  }
+  const data = await response.json();
+  if (response.ok) {
+    alert(`Registered user: ${data.message}`);
+    navigate("/loan_form", { state: { id: email } });
+  } else {
+    alert(`Error: ${data.error}`);
+  }
+};
+return (
+  <div className="apply-loan-container">
+    <h2>Apply Loan</h2>
+    <form onSubmit={handleSubmit}>
+      <label>Name</label>
+      <input type="text" placeholder="Name" required onChange={e => setName(e.target.value)} />
+      <label>Email</label>
+      <input type="email" placeholder="Email" required onChange={e => setEmail(e.target.value)} />
+      <label>Loan Amount</label>
+      <input type="number" placeholder="Loan Amount" required onChange={e => setloanAmount(e.target.value)} />
+      <label>Loan Term(in months)</label>
+      <input type="number" placeholder="Loan Term(months)" required onChange={e => setloanTerm(e.target.value)} />
+      <label>Interest Rate(in rupees)</label>
+      <input type="number" placeholder="Interest Rate(rupees)" required onChange={e => setinterestRate(e.target.value)} />
+      <button type="submit">Apply</button>
+    </form>
+  </div>
+);
 }
-
 export default ApplyLoan;
