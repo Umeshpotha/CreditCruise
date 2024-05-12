@@ -47,7 +47,7 @@ function LoanApplicationForm() {
 
   return (
     <div>
-      <h2>Loan Application Form</h2>
+      <h2>Loan Eligibility Checker</h2>
       <form onSubmit={handleSubmit}>
         <label htmlFor="Gender">Gender:</label>
         <select
