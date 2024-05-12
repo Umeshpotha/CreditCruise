@@ -10,7 +10,7 @@
       content="Web site created using create-react-app"
     />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <link rel="icon" type="image/png" href="favicon.ico">
+    <link rel="icon" type="image/png" href="favicon.ico" />
     <!--
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
@@ -30,6 +30,35 @@
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
+    <link
+      rel="stylesheet"
+      href="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/themes/df-messenger-default.css"
+    />
+    <script src="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/df-messenger.js"></script>
+    <df-messenger
+      location="us-central1"
+      project-id="kein-armut"
+      agent-id="afa50641-9447-4f42-bb15-5ea020cd3cce"
+      language-code="en"
+      max-query-length="-1"
+    >
+      <df-messenger-chat-bubble chat-title="AI Agent">
+      </df-messenger-chat-bubble>
+    </df-messenger>
+    <style>
+        df-messenger {
+          z-index: 999;
+          position: fixed;
+          --df-messenger-font-color: #000000;
+          --df-messenger-font-family: Roboto Mono;
+          --df-messenger-chat-background: #FEF8E6;
+          --df-messenger-message-user-background: #d3e3fd;
+          --df-messenger-message-bot-background: #4285F4;
+          bottom: 16px;
+          right: 16px;
+        }
+    </style>
+    >
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
