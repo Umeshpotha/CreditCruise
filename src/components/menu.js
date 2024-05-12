@@ -20,11 +20,15 @@ function Menu() {
 
       {/* Menu items */}
       <ul className={isMenuOpen ? "menu-items open" : "menu-items"}>
-        <li>Profile</li>
+        <li>
+          <Link to="/profile">Profile</Link>
+        </li>
         <li>
           <Link to="/settings">Settings</Link>
         </li>
-        <li>LogOut</li>
+        <li>
+        <Link to="/logout">LogOut</Link>
+        </li>
       </ul>
     </div>
   );

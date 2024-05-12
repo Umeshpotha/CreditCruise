@@ -5,6 +5,9 @@ import { useNavigate} from "react-router-dom";
 function Signup() {
     const navigate = useNavigate();
     const [fullname, setFullname] = useState('');
+    const [username, setUsername] = useState('');
+    const [mobile, setMobile] = useState('');
+    const [pan, setPan] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
@@ -17,7 +20,7 @@ function Signup() {
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ fullname, email, password, confirmPassword }),
+            body: JSON.stringify({ fullname, username, mobile, pan, email, password, confirmPassword }),
         });
         
         if (!response.ok) {
@@ -39,7 +42,10 @@ function Signup() {
             <h2>Sign Up</h2>
             <form onSubmit={handleSubmit}>
                 <input type="text" placeholder="Full Name" required onChange={e => setFullname(e.target.value)} />
+                <input type="text" placeholder="username or id" required onChange={e => setUsername(e.target.value)} />
+                <input type="number" placeholder="Mobile" required onChange={e => setMobile(e.target.value)} />
                 <input type="email" placeholder="Email" required onChange={e => setEmail(e.target.value)} />
+                <input type="text" placeholder="PAN No." required onChange={e => setPan(e.target.value)} />
                 <input type="password" placeholder="Password" required onChange={e => setPassword(e.target.value)} />
                 <input type="password" placeholder="Confirm Password" required onChange={e => setConfirmPassword(e.target.value)} />
                 <button type="submit">Sign Up</button>
