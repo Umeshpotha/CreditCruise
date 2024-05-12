@@ -1,70 +1,74 @@
-# Getting Started with Create React App
+<h1 align="center" id="title">Credits Cruise</h1>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<p align="center"><img src="https://socialify.git.ci/Umeshpotha/CreditCruise/image?language=1&amp;name=1&amp;stargazers=1&amp;theme=Light" alt="project-image"></p>
 
-## Available Scripts
+<p id="description">This Project Is developed as a Part of Angel Hack Global Hackathon Series [Hack Bangalore]</p>
 
-In the project directory, you can run:
+<h2>Project Screenshots:</h2>
 
-### `npm start`
+<img src="https://github.com/Umeshpotha/CreditCruise/blob/main/LoanApprovalPredictionAPI-main/Screenshot%202024-05-12%20134418.png" alt="project-screenshot" width="50" height="50/">
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+<img src="https://github.com/Umeshpotha/CreditCruise/blob/main/LoanApprovalPredictionAPI-main/Screenshot%202024-05-12%20134508.png" alt="project-screenshot" width="50" height="50/">
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+<img src="https://github.com/Umeshpotha/CreditCruise/blob/main/LoanApprovalPredictionAPI-main/Screenshot%202024-05-12%20134559.png" alt="project-screenshot" width="50" height="50/">
 
-### `npm test`
+<img src="https://github.com/Umeshpotha/CreditCruise/blob/main/LoanApprovalPredictionAPI-main/Screenshot%202024-05-12%20134657.png" alt="project-screenshot" width="50" height="50/">
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<img src="https://github.com/Umeshpotha/CreditCruise/blob/main/LoanApprovalPredictionAPI-main/WhatsApp%20Image%202024-05-12%20at%2014.01.07_4b0c8d00.jpg" alt="project-screenshot" width="50" height="50/">
 
-### `npm run build`
+<h2>🛠️ Installation Steps:</h2>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<p>1. Step: Install Node Modules Required to Start NPM</p>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```
+npm install
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<p>2. Step : with The below step project can deployed locally Make Sure to Check the Local Host</p>
 
-### `npm run eject`
+```
+npm start
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+<p>3. Step : with the Below Builds the app for production to the build folder. It correctly bundles React in production mode and optimizes the build for the best performance. The build is minified and the filenames include the hashes. Your app is ready to be deployed!</p>
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```
+npm  run build
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+<p>4. Step : Navigate to src folder to run server.js file</p>
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```
+node server.js
+```
 
-## Learn More
+<p>5. Step: Connect MongoDB Compass</p>
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+<p>6. Step :Check The API Folder</p>
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```
+pip install -r requirements.txt
+```
 
-### Code Splitting
+<p>7. Step : A local Service will be deployed</p>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```
+python app.py
+```
 
-### Analyzing the Bundle Size
+<p>8. Thus the total Process is finished</p>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+  
+  
+<h2>💻 Built with</h2>
 
-### Making a Progressive Web App
+Technologies used in the project:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+*   React
+*   Node
+*   Python
+*   HTML%
+*   CSS
+*   Dialogflow
+*   Flask
+*   MongoDB
