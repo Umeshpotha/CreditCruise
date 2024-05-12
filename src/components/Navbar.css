@@ -1,6 +1,5 @@
-/* Navbar.css */
 nav {
-  position: relative; /* Set position to relative */
+  position: relative; 
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -12,15 +11,17 @@ nav {
   text-decoration: none;
 }
 .logo a:hover {
-  color: blue;
+  color: rgb(49, 191, 44);
 }
 .logo {
   font-size: 24px;
+  text-decoration: none;
+  color: rgb(49, 191, 44);
 }
 
 .menu-bar-container {
-  position: absolute; /* Set position to absolute */
-  right: 20px; /* Adjust as needed */
+  position: absolute; 
+  right: 20px; 
 }
 
 .menu-icon {

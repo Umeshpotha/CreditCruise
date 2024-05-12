@@ -9,8 +9,11 @@ import About from "./components/about";
 import LoanApplicationForm from "./components/loan_form";
 import ProfileScreen from '../src/components/Profile';
 import Logout from '../src/components/logout'
-import { UserContext, UserProvider } from '../src/components/usercontext';
+import { UserContext } from '../src/components/usercontext';
 import Privacy from '../src/components/privacy';
+import Terms from '../src/components/terms';
+import Loans from '../src/components/loans'
+import ApplyLoan from '../src/components/apply-loan';
 
 function App() {
   const [user, setUser] = useState(null);
@@ -28,6 +31,9 @@ function App() {
         <Route path="/profile" element={<ProfileScreen />} />
         <Route path="/logout" element={<Logout />} />
         <Route path="/privacy" element={<Privacy />} />
+        <Route path="/terms" element={<Terms />} />
+        <Route path="/loans" element={<Loans />} />
+        <Route path="/apply-loan" element={<ApplyLoan />} />
       </Routes>
     </Router>
     </UserContext.Provider>

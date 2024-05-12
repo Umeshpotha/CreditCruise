@@ -11,7 +11,7 @@ const HomePage = () => {
             <p>
               Access quick and hassle-free loans to fuel your business growth.
             </p>
-              <a className="btn btn-primary" href="/loan_form" target="_blank">Open Application Form</a>
+              <a className="btn btn-primary" href="/loan_form" target="_blank">Check Your Eligibility for Loan</a>
           </div>
         </section>
 
