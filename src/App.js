@@ -8,6 +8,7 @@ import HomePage from "./components/Home";
 import About from "./components/about";
 import LoanApplicationForm from "./components/loan_form";
 import ProfileScreen from '../src/components/Profile';
+import Logout from '../src/components/logout'
 import { UserContext, UserProvider } from '../src/components/usercontext'; // Change this line
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/loan_form" element={<LoanApplicationForm />} />
         <Route path="/profile" element={<ProfileScreen />} />
+        <Route path="/logout" element={<Logout />} />
       </Routes>
     </Router>
     </UserContext.Provider>

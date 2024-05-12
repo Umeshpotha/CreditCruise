@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import "./login.css";
 
-
 function Login() {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
@@ -26,7 +25,7 @@ function Login() {
         alert("Logged in successfully");
         localStorage.setItem('user', JSON.stringify(data.user));
         console.log('User data in local storage:', localStorage.getItem('user'));
-        navigate("/", { state: { id: email } });
+        navigate("/profile", { state: { id: email } });
       } else {
         alert(data.error);
       }

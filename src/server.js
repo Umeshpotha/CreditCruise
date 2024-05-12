@@ -48,7 +48,6 @@ app.post('/login', async (req, res) => {
   if (!user || !password) {
     return res.status(400).json({ error: "Invalid credentials" });
   }
-  // Include user data in the response
   res.status(200).json({ message: "User logged in successfully", user });
 });
 
